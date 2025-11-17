@@ -11,8 +11,11 @@ void setup(){
 }
 
 void draw (){
-  image (bg,0,0);
+  image (bg ,0,100);
   image (car,200,300);
-  image (pumpkins,0,400);
+  //pumpkins
+  scale (1.3);
+  image (pumpkins,0,350); 
+  
 
 }

@@ -2,19 +2,16 @@
 PImage bg, car, pumpkins, redLeaf, doubleLeaf, redLeaf2, whiteLeaf, whiteOrangeLeaf,
        orangeTriLeaf, yellowLeaf, yellowLeaf2, wetLeaf1, wetLeaf2, wetLeaf3;
 
-//moving pieces
-PImage redLeafFloat;
-float angle= 0;
-float radius= 10;
-
 void setup(){
   size(1024, 700);
   background(#ff00ff); //Matt's mandatory neon pink
   
-  // loading my images
+  // loading my static images
   bg               = loadImage("fallBG.jpg");
   car              = loadImage("car.png");
   pumpkins         = loadImage("pumpkins.png");
+  
+  // loading moving images
   redLeaf          = loadImage ("redLeaf.png");
   redLeaf2         = loadImage("redLeaf2.png");
   doubleLeaf       = loadImage("doubleLeaf.png");
@@ -25,6 +22,9 @@ void setup(){
   wetLeaf1         = loadImage("wetLeaf1.png");
   wetLeaf2         = loadImage("wetLeaf2.png");
   wetLeaf3         = loadImage("wetLeaf3.png");
+  
+  //defining moving images
+  
   
 }
 
@@ -43,13 +43,8 @@ void draw (){
   scale(.80);
   //image (redLeaf,20,0);
   popMatrix();
- // float x= 20 + angle *cos(angle);
- // float y= 10 + radius *sin(angle);
- // image (redLeaf,x,y, height*0.10, width*0.20);
- 
- 
   
+  //falling leaves
+  for (var i= 0; i < redLeaf;
   
-  //PVector scale = new PVector(1, 1);
-  //angle+=TAU/100; 
 }

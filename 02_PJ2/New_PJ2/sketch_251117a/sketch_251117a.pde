@@ -5,6 +5,10 @@ PImage bg, car, pumpkins, redLeaf, doubleLeaf, redLeaf2, whiteLeaf, whiteOrangeL
 PImage[] Leaves= new PImage[10]; //10 leaves
 ArrayList<Leaf> leaves= new ArrayList<Leaf>();
 
+//========= for frames only ============
+int numFrames = 80;
+//======================================
+
 void setup(){
   size(1024, 700);
   background(#ff00ff); //Matt's mandatory neon pink
@@ -60,6 +64,16 @@ void draw (){
     l.update();
     l.display();
   }
+  //====== frames only =======  
+ if(frameCount <= numFrames){
+    saveFrame("fr###.png");
+ }
+ if(frameCount > numFrames)
+  {
+    println("All frames have been saved");
+  }
+  //==========================
+  
 }
   
 class Leaf {
@@ -72,7 +86,7 @@ class Leaf {
   Leaf(){
     x = random(-100,width);
     y = random(-500, -50);
-    speed = random(2,6);
+    speed = random(4,8);
     image = Leaves[int(random(Leaves.length))];
     size = random(0.1,1); // leaf sizes
   }

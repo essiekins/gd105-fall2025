@@ -44,7 +44,6 @@ void setup(){
     }
 }
  
-
 void draw (){
   //car and background
   image (bg , 0, 100);
@@ -71,8 +70,8 @@ class Leaf {
   
   //choose leaf at random
   Leaf(){
-    x = random(width);
-    y = random(-100, -50);
+    x = random(-100,width);
+    y = random(-500, -50);
     speed = random(2,6);
     image = Leaves[int(random(Leaves.length))];
     size = random(0.1,1); // leaf sizes
@@ -81,8 +80,8 @@ class Leaf {
   void update (){
     y += speed; 
     if (y > height){
-    y = random(-100, -50); //loop back to og spot
-    x = random(width); //move places randomly
+    y = random(-500, -50); //loop back to og spot
+    x = random(-100,width); //move places randomly
     size = random(0.1,1);
     image = Leaves[int(random(Leaves.length))]; //pick a new leaf
     }

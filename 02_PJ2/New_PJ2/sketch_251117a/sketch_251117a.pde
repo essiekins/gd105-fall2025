@@ -26,11 +26,7 @@ void setup(){
   wetLeaf2         = loadImage("wetLeaf2.png");
   wetLeaf3         = loadImage("wetLeaf3.png");
   
-  //load into array
-  //for (int i = 0; i < 10; i++) {
-   // Leaves[i] = loadImage("redLeaf.png" + i + ".png");
-   // }
-  // leaves to call
+  //index of leaves to sort through
   Leaves[0] = redLeaf;
   Leaves[1] = redLeaf2;
   Leaves[2] = doubleLeaf;
@@ -50,13 +46,14 @@ void setup(){
  
 
 void draw (){
-  image (bg ,0,100);
-  image (car,430,450,height*0.20, width*0.10);
+  //car and background
+  image (bg , 0, 100);
+  image (car, 430, 450, height*0.20, width*0.10);
   
   //pumpkins
   pushMatrix();
   scale (1.3);
-  image (pumpkins,0,350); 
+  image (pumpkins, 0, 350); 
   popMatrix();
   
   //redLeaf
@@ -65,7 +62,7 @@ void draw (){
   //image (redLeaf,20,0);
   popMatrix();
   
-  //update leaves
+  //update leaf object
   for (Leaf l: leaves){
     l.update();
     l.display();
@@ -75,21 +72,22 @@ void draw (){
 class Leaf {
   float x, y;
   float speed;
-  float size;
   PImage image;
+  float size;
+  
   //choose leaf at random
-
   Leaf(){
     x = random(width);
-    y = random(-200, -50);
+    y = random(-100, -50);
     speed = random(2,6);
     image = Leaves[int(random(Leaves.length))];
+    size = random(0.1,1); // leaf sizes
   }
 
   void update (){
     y += speed; 
     if (y > height){
-    y = random(-200, -50); //loop back to og spot
+    y = random(-100, -50); //loop back to og spot
     x = random(width); //move places randomly
     image = Leaves[int(random(Leaves.length))]; //pick a new leaf
     }

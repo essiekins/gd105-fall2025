@@ -56,12 +56,6 @@ void draw (){
   image (pumpkins, 0, 350); 
   popMatrix();
   
-  //redLeaf
-  pushMatrix();
-  scale(.80);
-  //image (redLeaf,20,0);
-  popMatrix();
-  
   //update leaf object
   for (Leaf l: leaves){
     l.update();
@@ -89,6 +83,7 @@ class Leaf {
     if (y > height){
     y = random(-100, -50); //loop back to og spot
     x = random(width); //move places randomly
+    size = random(0.1,1);
     image = Leaves[int(random(Leaves.length))]; //pick a new leaf
     }
   }

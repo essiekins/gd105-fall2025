@@ -1,15 +1,19 @@
 import processing.sound.*;
 SoundFile boing, cat, phoneToy, xmas, dialup, dog, nokia, duck, guitar, drums, piano, bass;
 //buttons
-  buttonSound sounds = new Button(soundPress);
+//buttonSound sounds = new Button(soundPress);
 //buttonEffect effectButtons = new Button2
+//button position
+buttonPosition = new float [12];
+//button img
+PImage heart,bubble;
 //colors
-//colors
-  color pink, purple;
+color pink, purple;
 
 void setup(){
   size (800,800);
   //sounds imported
+  /*
   sounds[1]boing= new SoundFile(this,"boing.mp3");
   sounds[2]cat= new SoundFile(this,"cat-meow.mp3");
   sounds[3]phoneToy= new SoundFile(this,"chinese-phone-toy.mp3");
@@ -21,8 +25,11 @@ void setup(){
   sounds[9]guitar= new SoundFile(this,"guitar.mp3");
   sounds[10]bass= new SoundFile(this,"bass.mp3");
   sounds[11]piano= new SoundFile(this,"piano.mp3");
-  sounds[12]drums= new SoundFile(this,"drums.mp3");
+  sounds[12]drums= new SoundFile(this,"drums.mp3");*/
   
+  //load heart button
+  heart= loadImage("heart.png");
+  bubble= loadImage("bubble.png");
 }
 
 void draw(){
@@ -32,12 +39,27 @@ void draw(){
   fill (pink);
   noStroke();
   rectMode(CENTER);
-  rect(height/2,width/2,600,500,60);
+  rect(height/2, width/2, 600, 500, 60);
   
-  class buttonSound {sounds
+  // heart button positions
+  //image(bubble,100,100);
   
-  
+  for (int i = 0; i < 12; i++){
+    float x = buttonPostitions[i][0];
+    float y = buttonPositions [i][1];
+    image(heart,50,50);
   }
+    
+  int space = 50;
+  int x = 80;
+  int y = 80;
+  
+  for (int i = 0; i < 12; i++){
+    buttonPositions[i][0]= x + i/4 * space;
+    buttonPositions[i][0]= y + i/3 * space;
+    
+  }
+
   
   
   

@@ -5,6 +5,10 @@ PImage bg, car, pumpkins, redLeaf, doubleLeaf, redLeaf2, whiteLeaf, whiteOrangeL
 PImage[] Leaves= new PImage[10]; //10 leaves
 ArrayList<Leaf> leaves= new ArrayList<Leaf>();
 
+//========= for frames only ============
+int numFrames = 80;
+//======================================
+
 void setup(){
   size(1024, 700);
   background(#ff00ff); //Matt's mandatory neon pink
@@ -44,7 +48,6 @@ void setup(){
     }
 }
  
-
 void draw (){
   //car and background
   image (bg , 0, 100);
@@ -56,17 +59,21 @@ void draw (){
   image (pumpkins, 0, 350); 
   popMatrix();
   
-  //redLeaf
-  pushMatrix();
-  scale(.80);
-  //image (redLeaf,20,0);
-  popMatrix();
-  
   //update leaf object
   for (Leaf l: leaves){
     l.update();
     l.display();
   }
+  //====== frames only =======  
+ if(frameCount <= numFrames){
+    saveFrame("fr###.png");
+ }
+ if(frameCount > numFrames)
+  {
+    println("All frames have been saved");
+  }
+  //==========================
+  
 }
   
 class Leaf {
@@ -77,9 +84,9 @@ class Leaf {
   
   //choose leaf at random
   Leaf(){
-    x = random(width);
-    y = random(-100, -50);
-    speed = random(2,6);
+    x = random(-100,width);
+    y = random(-500, -50);
+    speed = random(4,8);
     image = Leaves[int(random(Leaves.length))];
     size = random(0.1,1); // leaf sizes
   }
@@ -87,8 +94,9 @@ class Leaf {
   void update (){
     y += speed; 
     if (y > height){
-    y = random(-100, -50); //loop back to og spot
-    x = random(width); //move places randomly
+    y = random(-500, -50); //loop back to og spot
+    x = random(-100,width); //move places randomly
+    size = random(0.1,1);
     image = Leaves[int(random(Leaves.length))]; //pick a new leaf
     }
   }

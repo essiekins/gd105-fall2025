@@ -4,6 +4,9 @@
   float xSpacing= 0;
   float ySpacing=0;
   
+  //make y and x a grid/boxes class
+  
+  
   void setup(){
     background(41, 73, 148);
     size(800,800);

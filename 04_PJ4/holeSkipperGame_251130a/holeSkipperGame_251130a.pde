@@ -20,7 +20,7 @@
     
     //laying out start end zone positions
     pushMatrix();
-    stroke(12, 153, 20);//green
+    fill(12, 153, 20);//green
     strokeWeight(10);
     /*
     line(100,180,700,180);// end zone barrier (width)
@@ -40,7 +40,7 @@
     //remember to switch start/end lines for squares later because of that ^
     
     x= 100;// starting point
-    xSpacing = (720 - 200) / 6 ;
+    xSpacing = (720 - 200) / 7 ;
     stroke(209, 40, 190); //pink
     while (x < 700){ 
       line(x,200,x,600);

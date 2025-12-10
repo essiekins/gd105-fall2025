@@ -10,6 +10,9 @@ float tileSize = 50;
 //yTiles= new yTiles{0,1,2,3,4,5,6,7,8};
 //9*15= 135 ^n^
 
+tileX = new [cols];
+//tileY = new [rows];
+
 //start tile A0 or A8
 
 //tiles 2 states, safe/hole
@@ -67,10 +70,17 @@ void draw() {
       rectMode(CORNERS);
       translate(50, 200);
       rect(xTile, yTile, tileSize, tileSize); // my xy tile and tile size
-      popMatrix();
-     
+      popMatrix(); 
+      
+      //identifying rows A-O Columns 1-8 (or 0-8)
+      for (int i = 0; i < cols; i++){
+        for (int j = 0; j < rows; j++ {
+          tileX[i]= i + tileSize;
+          tileY[j] = j + tieSize;
+        }
+      }
+      
       
       }
- 
     }
   }

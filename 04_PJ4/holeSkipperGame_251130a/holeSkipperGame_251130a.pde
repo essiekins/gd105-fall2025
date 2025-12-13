@@ -13,12 +13,6 @@ playerPosition player;
 // safe.state 
 // hole.state
 
-//wasd keys
-//w == up
-//s == down
-//a == left
-//d == right
-
 void setup() {
   background(41, 73, 148);
   size(800, 800);
@@ -82,26 +76,24 @@ void draw() {
 
 
 //player standing square
-      class playerPosition {
-        int startCol;
-        int startRow;
-        float tileSize;
-        playerPosition(int startCol, int startRow, float tileSize) {
-        this.startCol = startCol;
-        this.startRow = startRow;
-        this.tileSize = tileSize;
-        }
-      void draw(){
-        pushMatrix();
-        translate(50,200);
-        fill(250,242,0);
-        rectMode(CORNER);
-        rect(startCol * tileSize, startRow * tileSize, tileSize, tileSize);
-        popMatrix();
-      }
-        
-        
-      }// end of position class
+class playerPosition {
+  int startCol;
+  int startRow;
+  float tileSize;
+  playerPosition(int startCol, int startRow, float tileSize) {
+  this.startCol = startCol;
+  this.startRow = startRow;
+  this.tileSize = tileSize;
+  }
+void draw(){
+  pushMatrix();
+  translate(50,200);
+  fill(250,242,0);
+  rectMode(CORNER);
+  rect(startCol * tileSize, startRow * tileSize, tileSize, tileSize);
+  popMatrix();
+}//end of draw    
+}// end of position class
 
 // start of wasd movements
 void keyPressed() {
@@ -109,5 +101,4 @@ void keyPressed() {
   if (key == 's') player.startRow ++;
   if (key == 'a') player.startCol --;
   if (key == 'd') player.startCol ++;
-  
 }//end of keys */

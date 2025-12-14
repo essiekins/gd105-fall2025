@@ -7,11 +7,23 @@ int xTile = 15;
 int yTile = 9;
 float tileSize = 50;
 
-playerPosition player;
+//need collisions set to container before tile states
+/* 
+-need a life check/gain connected to P lifes will be as coins?
+- make the if/else for life checks
+*/
 
-//tiles 2 states, safe/hole
-// safe.state 
-// hole.state
+/*
+  line(100,180,700,180);// end zone barrier (width)
+  line(100,600,700,600);// start zone (width)
+  line(x,100,x,600);// testing x line
+   */
+/* GRID GUIDANCE FOR TILES
+  // x lines. remember 600 square size not counting as a line. use 720.
+  //remember to switch start/end lines for squares later because of that ^
+  */
+
+playerPosition player;
 
 void setup() {
   background(41, 73, 148);
@@ -27,30 +39,21 @@ void draw() {
   rectMode(CENTER);
   stroke(255, 54, 0);//red
   strokeWeight(15);
-  rect(height/2, width/2, 700, 700);
-  popMatrix();
+  rect(height/2, width/2, 700, 700); //width for boundary 700
+  popMatrix();   
 
   //laying out start end zone positions
   pushMatrix();
   fill(12, 153, 20);//green
   strokeWeight(10);
   popMatrix();
-  /*
-  line(100,180,700,180);// end zone barrier (width)
-  line(100,600,700,600);// start zone (width)
-  line(x,100,x,600);// testing x line
-   */
+  
   //end square
   rectMode(CENTER);
   rect(400, 150, 700, 100);
   //start square
   rect(400, 650, 700, 100);
   // line(100,300,700,300); // testing y line
-
-  /* GRID GUIDANCE FOR TILES
-  // x lines. remember 600 square size not counting as a line. use 720.
-  //remember to switch start/end lines for squares later because of that ^
-  */
 
   //tiles for x and y
   for (int i = 0; i < xTile; i++) {
@@ -59,7 +62,6 @@ void draw() {
       float yTile = j * tileSize;
 
       //drawing tiles
-    
       pushMatrix();
       noFill();
       rectMode(CORNERS);
@@ -74,16 +76,36 @@ void draw() {
  
 }// end of draw
 
+//declaring my boundaries as a new XY function inside checkPosition
+wallX = containerX;
+wallY = containerY;
+float boundaryWidth = 200;
+float boundaryHeight = 200;
 
 //player standing square
 class playerPosition {
   int startCol;
   int startRow;
   float tileSize;
+  float x,y;
   playerPosition(int startCol, int startRow, float tileSize) {
   this.startCol = startCol;
   this.startRow = startRow;
   this.tileSize = tileSize;
+ 
+ // am I inside the conatiner? check
+ void checkPosition (float posX, float posY){
+   float posX = x + posX;
+   float posY = y + posY;
+   
+   if (posX >= wallX && posX <= wallX + width && posY
+      // posY >= wallY && posY <= wallY + height )
+       x = wallX;
+       y = wallY;      
+   if (x < containerX
+           
+ }//end of checkPosition
+  
   }
 void draw(){
   pushMatrix();

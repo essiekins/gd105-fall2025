@@ -11,6 +11,11 @@
 //tileState;
 //gameState
 
+/* 
+-need a life check/gain connected to P lifes will be as coins?
+- make the if/else for life checks
+*/
+
 /*
 void draw() {
    if (gameState == "START");{

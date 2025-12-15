@@ -76,11 +76,12 @@ void draw() {
       translate(50, 200);
       rect(xTilePos, yTilePos, xTilePos + tileSize, tileSize + tileSize ); // my xy tile and tile size
       popMatrix();
+      
+      //player position
+player.draw();
     }//end of loop for tiles
   } // end of draw tiles
 
-//player position
-player.draw();
 }// end of draw
 
 //declaring my boundaries as a new XY function inside checkPosition
@@ -134,12 +135,14 @@ void draw() {
 
 // start of wasd movements
 void keyPressed() {
-  if (key == 'w') player.startRow --;
-  if (key == 's') player.startRow ++;
-  if (key == 'a') player.startCol --;
-  if (key == 'd') player.startCol ++;
+  if (key == 'w' || key == 'W') player.startRow --;
+  if (key == 's' || key == 'S') player.startRow ++;
+  if (key == 'a' || key == 'A') player.startCol --;
+  if (key == 'd' || key == 'D') player.startCol ++;
+  
 // recheck player pistion on new cols/rows boundary
 player.x = containerX + player.startCol * tileSize;
 player.y = containerY + player.startRow * tileSize;
+//checking if next movement tile is walkable
 player.checkPosition();
 }//end of keys */

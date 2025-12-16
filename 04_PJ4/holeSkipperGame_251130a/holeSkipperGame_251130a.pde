@@ -1,5 +1,5 @@
 //start tile A0 or A8
-int startCol = 0;
+int startCol = -2;
 int startRow = 8;
 
 //tiles for x and y
@@ -81,12 +81,8 @@ void draw() {
 player.draw();
     }//end of loop for tiles
   } // end of draw tiles
-
+  
 }// end of draw
-
-//declaring my boundaries as a new XY function inside checkPosition
-//float posX = containerX;
-//float posY = containerY;
 
 //player standing square
 class playerPosition {
@@ -127,7 +123,7 @@ void draw() {
   pushMatrix();
   translate(50, 200);//container start/end
   fill(250, 242, 0);//yellow
-  rectMode(CORNER);
+  rectMode(CORNERS);
   rect(x, y, tileSize, tileSize);
   popMatrix();
 }//end of draw

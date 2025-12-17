@@ -1,4 +1,3 @@
-// boundary positionCheck backup
 /*
 void checkPosition() {
     // check boundary/container and tile boundary
@@ -15,4 +14,4 @@ void checkPosition() {
       y =  containerY + startRow * tileSize;
     }// end of boundary
   }//end of checkPosition
-  /*
+  */
